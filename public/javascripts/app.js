@@ -15,8 +15,13 @@ app = {
 };
 
 (function() {
-	var item = app.namespace("dnd.item");
-	item.setEvent = function() {
-		
+	var DnDItem = app.namespace("dnd.item");
+	var item = $(".item");
+	DnDItem.setEvent = function() {
+		$(document).on("dragstart drag drop dragend", ".item", function(e) {
+			console.log( e.type );
+		});
 	}
 })();
+
+app.dnd.item.setEvent();
